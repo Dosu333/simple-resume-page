@@ -22,12 +22,12 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = '&er(a)^88vx-7$z05&#trf(%$7e(t2nqdsg$^#fo6+nlwflvuz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'olmresume.herokuapp.com']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
     'resume',
 ]
 
@@ -77,13 +78,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
-        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-        'NAME': os.environ.get('POSTGRES_DB', 'mydatabase'),
-        'USER': os.environ.get('POSTGRES_USER','mydatabase'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD','mydatabase'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
+     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

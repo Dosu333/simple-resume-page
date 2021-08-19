@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 {% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
@@ -81,7 +85,7 @@
                   </ul>
                 </nav>
               </div>
-              <div class="d-print-none"><a class="btn btn-outline-light btn-lg shadow-sm mt-1 me-3" href="material-resume.pdf" data-aos="fade-right" data-aos-delay="700">Download CV</a><a class="btn btn-info btn-lg shadow-sm mt-1" href="#contact" data-aos="fade-left" data-aos-delay="700">Hire Me</a></div>
+              <div class="d-print-none"><a class="btn btn-outline-light btn-lg shadow-sm mt-1 me-3" href={% static "Oladosu_resume.pdf" %} data-aos="fade-right" data-aos-delay="700">Download CV</a><a class="btn btn-info btn-lg shadow-sm mt-1" href="#contact" data-aos="fade-left" data-aos-delay="700">Hire Me</a></div>
             </div>
           </div>
         </div>
@@ -273,33 +277,33 @@
     <div class="contant-section">
       <h2 class="h2 fw-light text mb-4">Contact</h2>
       <div class="row">
-        <div class="col-md-5" data-aos="fade-left" data-aos-delay="200">
+        <div class="" data-aos="fade-left" data-aos-delay="200">
           <div class="mt-1">
             <div class="h6"><i class="fas fa-phone pe-2 text-muted" style="width:24px;opacity:0.85;"></i> {{ me.phone }}</div>
             <div class="h6"><i class="far fa-envelope pe-2 text-muted" style="width:24px;opacity:0.85;"></i> {{ me.contact_email }}</div>
-          </div>
-          <div class="mt-5 d-print-none">
+          </div><br>
+          <div class="">
            
           <form method="POST">
             {% csrf_token %}
-  <div class="form-outline ">
-
+  <div class=" ">
+    {% bootstrap_form form %}
     
-    <!-- <input type="text" id="name" class="form-control" required/> -->
+    <!-- <input type="text" id="name" class="form-control" required/>
     
     <label class="form-label" for="{{ form.name.id_for_label }}">Name: </label>
     {{form.name}}
   </div>
   <div class="form-outline mb-4">
-    <!-- <input type="email" id="email" class="form-control" required/> -->
+    <input type="email" id="email" class="form-control" required/>
     <label class="form-label" for="{{ form.email.id_for_label }}">Email address: </label>
     {{ form.email }}
   </div>
   <div class="form-outline mb-4">
-    <!-- <textarea class="form-control" style="resize: none;" id="message" rows="4" required></textarea> -->
+    <textarea class="form-control" style="resize: none;" id="message" rows="4" required></textarea>
     <label class="form-label" for="{{ form.message.id_for_label }}">Message: </label>
     {{form.message}}
-  </div>
+  </div> -->
   <button class="btn btn-info btn-block mb-4" type="submit">Send</button>
 </form>
           </div>
