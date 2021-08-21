@@ -19,5 +19,5 @@ from resume.views import ResumeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', ResumeView.as_view()),
+    path('', ResumeView.as_view(), name='home'),
 ]

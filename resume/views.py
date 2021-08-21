@@ -7,6 +7,7 @@ from .forms import ContactForm
 
 class ResumeView(TemplateView):
     template_name = 'index.html'
+    success_url = 'thank_you.html'
 
     def get(self, request):
         form = ContactForm()
@@ -26,5 +27,4 @@ class ResumeView(TemplateView):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Thanks, I have received your message')
-        # return HttpResponse('Thanks, I have received your message')
+        return render(request, self.success_url)
