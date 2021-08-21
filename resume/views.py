@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView
-from django.views.generic.edit import CreateView
+from django.contrib import messages
 from . import models
 from .forms import ContactForm
 
@@ -26,4 +26,5 @@ class ResumeView(TemplateView):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-        return HttpResponse('Thanks, I have received your message')
+            messages.success(request, 'Thanks, I have received your message')
+        # return HttpResponse('Thanks, I have received your message')
